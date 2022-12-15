@@ -4,15 +4,18 @@ public class airline {
 	
 	// Variables declaration
 	public static String custIC, custNoPhone, custName, custDate, custDestinationFromWhere, custDestinationToWhere, custSeatClass;
+	public static String custAirline;
 	public static String departingTime, arrivalTime;
 	public static String classType;
 	public static int custAge;
-	public static double baseFlightPrice = 70.00, additionalPriceBetweenAirports = 5.00, sumOfFlightPrice;
+	public static double baseFlightPrice = 70.00, additionalPriceBetweenAirports = 0.00, sumOfFlightPrice;
+	public static double additionalPriceBetweenTimeFrame = 0.00, additionalPriceBetweenAirlines = 0.00;
+	// Important: sumOfFlightPrice
 	
 	// Arrays declaration
 	public static String airportDestination[] = {"KLIA", "Langkawi", "Kuching", "Penang", "KK", "Senai"};
 	public static String timeFrame[] = {"0000 - 0500", "0600 - 1200", "1300 - 1800", "1900 - 1159"};
-	public static String flightList[] = {"MAS", "AirAsia", "Batik"};
+	public static String airlinesType[] = {"MAS", "AirAsia", "Batik"};
 	
 	// Others declaration
 	// This is just a list of airport locations
@@ -52,15 +55,7 @@ public class airline {
 	public static void CustDetails() {
 		
 		Scanner sc = new Scanner(System.in);
-		airline airs = new airline();
-		airline tuah = new airline();
-		
-		airs.custAge = 5;
-		tuah.custAge = 10;
-		airs.custAge = 15;
-		
-		System.out.println("\n" + airs.custAge + tuah.custAge);
-		
+	
 		System.out.println("\nCUSTOMER DETAILS");
 		
 		// Customer's name
@@ -106,6 +101,7 @@ public class airline {
 		CustomerFromWhere();
 		CustomerToWhere();
 		FlightPrice();
+		AirlinesType();
 	}
 	
 	// Get customer's destination of departure
@@ -147,202 +143,287 @@ public class airline {
 		if(custDestinationFromWhere == "KLIA") {
 			FlightFromKLIA();
 		}
+		
+		else if(custDestinationFromWhere == "Langkawi") {
+			FlightFromLangkawi();
+		}
+		
+		else if(custDestinationFromWhere == "Kuching") {
+			FlightFromKuching();
+		}
+		
+		else if(custDestinationFromWhere == "Penang") {
+			FlightFromPenang();
+		}
+		
+		else if(custDestinationFromWhere == "KK") {
+			FlightFromKK();
+		}
+		
+		else if(custDestinationFromWhere == "Senai") {
+			FlightFromSenai();
+		}
+		
+		else {
+			System.out.println("Airport location is not valid. Please try again.");
+		}
 	}
 	
-	// KLIA
-	public static void FlightFromKLIA() {
+		// KLIA
+		public static void FlightFromKLIA() {
+							
+			if(custDestinationToWhere.equals("Langkawi")) {
+				
+				additionalPriceBetweenAirports = 10.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+			
+			if(custDestinationToWhere.equals("Kuching")) {
+				additionalPriceBetweenAirports = 50.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+			
+			if(custDestinationToWhere.equals("Penang")) {
+				additionalPriceBetweenAirports = 5.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+			
+			if(custDestinationToWhere.equals("KK")) {
+				additionalPriceBetweenAirports = 55.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+			
+			if(custDestinationToWhere.equals("Senai")) {
+				additionalPriceBetweenAirports = 5.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+			
+			// System.out.print("    Price: RM70.00 + " + additionalPriceBetweenAirports + " = RM" + sumOfFlightPrice);
+		}
+		
+		// Langkawi
+		public static void FlightFromLangkawi() {
+			
+			if(custDestinationToWhere.equals("KLIA")) {
+				
+				additionalPriceBetweenAirports = 10.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+			
+			if(custDestinationToWhere.equals("Kuching")) {
+				additionalPriceBetweenAirports = 70.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+			
+			if(custDestinationToWhere.equals("Penang")) {
+				additionalPriceBetweenAirports = 5.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+			
+			if(custDestinationToWhere.equals("KK")) {
+				additionalPriceBetweenAirports = 75.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+			
+			if(custDestinationToWhere.equals("Senai")) {
+				additionalPriceBetweenAirports = 15.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+			
+			// System.out.print("    Price: RM70.00 + " + additionalPriceBetweenAirports + " = RM" + sumOfFlightPrice);
+		}
+		
+		// Kuching
+		public static void FlightFromKuching() {
+				
+			if(custDestinationToWhere.equals("KLIA")) {
+					
+				additionalPriceBetweenAirports = 50.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+				
+			if(custDestinationToWhere.equals("Langkawi")) {
+				additionalPriceBetweenAirports = 70.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+				
+			if(custDestinationToWhere.equals("Penang")) {
+				additionalPriceBetweenAirports = 60.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+				
+			if(custDestinationToWhere.equals("KK")) {
+				additionalPriceBetweenAirports = 5.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+				
+			if(custDestinationToWhere.equals("Senai")) {
+				additionalPriceBetweenAirports = 30.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+				
+			// System.out.print("    Price: RM70.00 + " + additionalPriceBetweenAirports + " = RM" + sumOfFlightPrice);
+		}
+		
+		// Penang
+		public static void FlightFromPenang() {
+					
+			if(custDestinationToWhere.equals("KLIA")) {
 						
-		if(custDestinationToWhere.equals("Langkawi")) {
-			
-			additionalPriceBetweenAirports = 10.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+				additionalPriceBetweenAirports = 5.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+				
+			if(custDestinationToWhere.equals("Langkawi")) {
+				additionalPriceBetweenAirports = 5.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+					
+			if(custDestinationToWhere.equals("Kuching")) {
+				additionalPriceBetweenAirports = 60.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+					
+			if(custDestinationToWhere.equals("KK")) {
+				additionalPriceBetweenAirports = 60.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+					
+			if(custDestinationToWhere.equals("Senai")) {
+				additionalPriceBetweenAirports = 20.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+					
+			// System.out.print("    Price: RM70.00 + " + additionalPriceBetweenAirports + " = RM" + sumOfFlightPrice);
 		}
 		
-		if(custDestinationToWhere.equals("Kuching")) {
-			additionalPriceBetweenAirports = 50.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+		// Kota Kinabalu
+		public static void FlightFromKK() {
+						
+			if(custDestinationToWhere.equals("KLIA")) {
+						
+				additionalPriceBetweenAirports = 55.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+					
+			if(custDestinationToWhere.equals("Langkawi")) {
+				additionalPriceBetweenAirports = 75.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+						
+			if(custDestinationToWhere.equals("Kuching")) {
+				additionalPriceBetweenAirports = 10.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+					
+			if(custDestinationToWhere.equals("Penang")) {
+				additionalPriceBetweenAirports = 60.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+					
+			if(custDestinationToWhere.equals("Senai")) {
+				additionalPriceBetweenAirports = 30.00;
+				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			}
+						
+			// System.out.print("    Price: RM70.00 + " + additionalPriceBetweenAirports + " = RM" + sumOfFlightPrice);
 		}
 		
-		if(custDestinationToWhere.equals("Penang")) {
-			additionalPriceBetweenAirports = 5.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-		
-		if(custDestinationToWhere.equals("KK")) {
-			additionalPriceBetweenAirports = 55.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-		
-		if(custDestinationToWhere.equals("Senai")) {
-			additionalPriceBetweenAirports = 5.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-		
-		System.out.print("    Price: RM70.00 + " + additionalPriceBetweenAirports + " = RM" + sumOfFlightPrice);
-	}
-	
-	// Langkawi
-	public static void FlightFromLangkawi() {
-		
+		// Senai
+		public static void FlightFromSenai() {
+						
 		if(custDestinationToWhere.equals("KLIA")) {
-			
-			additionalPriceBetweenAirports = 10.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-		
-		if(custDestinationToWhere.equals("Kuching")) {
-			additionalPriceBetweenAirports = 70.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-		
-		if(custDestinationToWhere.equals("Penang")) {
+						
 			additionalPriceBetweenAirports = 5.00;
 			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 		}
-		
-		if(custDestinationToWhere.equals("KK")) {
-			additionalPriceBetweenAirports = 75.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-		
-		if(custDestinationToWhere.equals("Senai")) {
+					
+		if(custDestinationToWhere.equals("Langkawi")) {
 			additionalPriceBetweenAirports = 15.00;
 			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 		}
+						
+		if(custDestinationToWhere.equals("Kuching")) {
+			additionalPriceBetweenAirports = 30.00;
+			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+		}
+				
+		if(custDestinationToWhere.equals("Penang")) {
+			additionalPriceBetweenAirports = 20.00;
+			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+		}
+					
+		if(custDestinationToWhere.equals("KK")) {
+			additionalPriceBetweenAirports = 30.00;
+			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+		}
 		
-		System.out.print("    Price: RM70.00 + " + additionalPriceBetweenAirports + " = RM" + sumOfFlightPrice);
+		// System.out.print("    Price: RM70.00 + " + additionalPriceBetweenAirports + " = RM" + sumOfFlightPrice);
+						
 	}
 	
-	// Kuching
-	public static void FlightFromKuching() {
+	public static void AirlinesType () {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		//For numbered bullet points
+		int j = 1;
+		
+		System.out.println("\n    Available Airlines ");
+		
+		// Shows all available airlines.
+		for(int i = 0; i < airlinesType.length; i++) {
 			
-		if(custDestinationToWhere.equals("KLIA")) {
-				
-			additionalPriceBetweenAirports = 50.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
+			System.out.println("       " + j + ". " + airlinesType[i]);
+			j++;
 			
-		if(custDestinationToWhere.equals("Langkawi")) {
-			additionalPriceBetweenAirports = 70.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 		}
+		
+		System.out.print("\n    Chosen Airline: ");
+		custAirline = sc.next();
+		
+		// To set the customer's selected airline
+			/*
+			 [0] - MAS
+			 [1] - AirAsia
+			 [2] - Batik 
+			 */
+		for(int i = 0; i < airlinesType.length; i++) {
+			if(custAirline.equals(airlinesType[i])) {
+				custAirline = airlinesType[i];
+			}
 			
-		if(custDestinationToWhere.equals("Penang")) {
-			additionalPriceBetweenAirports = 60.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 		}
+		
+		if(custAirline.equals("MAS")) {
 			
-		if(custDestinationToWhere.equals("KK")) {
-			additionalPriceBetweenAirports = 5.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			additionalPriceBetweenAirlines = 100.00;
+			sumOfFlightPrice += additionalPriceBetweenAirlines;			
 		}
+		
+		else if(custAirline.equals("AirAsia")) {
 			
-		if(custDestinationToWhere.equals("Senai")) {
-			additionalPriceBetweenAirports = 30.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			additionalPriceBetweenAirlines = 50.00;
+			sumOfFlightPrice += additionalPriceBetweenAirlines;			
 		}
+		
+		else if(custAirline.equals("Batik")) {
 			
-		System.out.print("    Price: RM70.00 + " + additionalPriceBetweenAirports + " = RM" + sumOfFlightPrice);
-	}
-	
-	// Penang
-	public static void FlightFromPenang() {
-				
-		if(custDestinationToWhere.equals("KLIA")) {
-					
-			additionalPriceBetweenAirports = 5.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+			additionalPriceBetweenAirlines = 20.00;
+			sumOfFlightPrice += additionalPriceBetweenAirlines;			
 		}
-			
-		if(custDestinationToWhere.equals("Langkawi")) {
-			additionalPriceBetweenAirports = 5.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
+		
+		else {
+			System.out.println("Airline you have selected is not available. Please try again.");
 		}
-				
-		if(custDestinationToWhere.equals("Kuching")) {
-			additionalPriceBetweenAirports = 60.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-				
-		if(custDestinationToWhere.equals("KK")) {
-			additionalPriceBetweenAirports = 60.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-				
-		if(custDestinationToWhere.equals("Senai")) {
-			additionalPriceBetweenAirports = 20.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-				
-		System.out.print("    Price: RM70.00 + " + additionalPriceBetweenAirports + " = RM" + sumOfFlightPrice);
-	}
-	
-	// Kota Kinabalu
-	public static void FlightFromKK() {
-					
-		if(custDestinationToWhere.equals("KLIA")) {
-					
-			additionalPriceBetweenAirports = 55.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-				
-		if(custDestinationToWhere.equals("Langkawi")) {
-			additionalPriceBetweenAirports = 75.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-					
-		if(custDestinationToWhere.equals("Kuching")) {
-			additionalPriceBetweenAirports = 10.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-				
-		if(custDestinationToWhere.equals("Penang")) {
-			additionalPriceBetweenAirports = 60.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-				
-		if(custDestinationToWhere.equals("Senai")) {
-			additionalPriceBetweenAirports = 30.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-					
-		System.out.print("    Price: RM70.00 + " + additionalPriceBetweenAirports + " = RM" + sumOfFlightPrice);
-	}
-	
-	// Senai
-	public static void FlightFromSenai() {
-						
-		if(custDestinationToWhere.equals("KLIA")) {
-						
-			additionalPriceBetweenAirports = 5.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-					
-		if(custDestinationToWhere.equals("Langkawi")) {
-			additionalPriceBetweenAirports = 15.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-						
-		if(custDestinationToWhere.equals("Kuching")) {
-			additionalPriceBetweenAirports = 30.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-				
-		if(custDestinationToWhere.equals("Penang")) {
-			additionalPriceBetweenAirports = 20.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-					
-		if(custDestinationToWhere.equals("KK")) {
-			additionalPriceBetweenAirports = 30.00;
-			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
-		}
-						
-		System.out.print("    Price: RM70.00 + " + additionalPriceBetweenAirports + " = RM" + sumOfFlightPrice);
+		
+		System.out.println("\n    Price: " + sumOfFlightPrice);
+
+		
 	}
 }
 
 // Flight details
-// Makanan - Wifi - Same shit
+//Makanan - Wifi - Same shit
 // Class (Economy, Biz, First)
 // 
