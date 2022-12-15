@@ -10,7 +10,8 @@ public class airline {
 	public static int custAge;
 	public static double baseFlightPrice = 70.00, additionalPriceBetweenAirports = 0.00, sumOfFlightPrice;
 	public static double additionalPriceBetweenTimeFrame = 0.00, additionalPriceBetweenAirlines = 0.00;
-	public static double additionalPriceBetweenClasses = 0.00;
+	public static double additionalPriceBetweenClasses = 0.00, additionalPriceBetweenAges = 0.00;
+	public static double additionalPriceOfAddon = 0.00;
 	// Important: sumOfFlightPrice
 	
 	// Arrays declaration
@@ -103,9 +104,10 @@ public class airline {
 		CustomerFromWhere();
 		CustomerToWhere();
 		FlightPrice();
-		AirlinesType();
+		AirlineTypes();
 		AirlineTime();
 		AirlineClassType();
+		AirlineCustomerAgeType();
 	}
 	
 	// Get customer's destination of departure
@@ -366,7 +368,7 @@ public class airline {
 						
 	}
 	
-	public static void AirlinesType() {
+	public static void AirlineTypes() {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -477,6 +479,21 @@ public class airline {
 		
 		else {
 			System.out.println("Class that you have selected in not valid. Please try again.");
+		}
+	}
+	
+	public static void AirlineCustomerAgeType() {
+		// Customer age 12
+		if(custAge < 13) {
+			additionalPriceBetweenAges = 0.00;
+		}
+		
+		if(custAge < 51) {
+			additionalPriceBetweenAges = 10.00;
+		}
+		
+		if(custAge >= 51) {
+			additionalPriceBetweenAges = 5.00;
 		}
 	}
 }
