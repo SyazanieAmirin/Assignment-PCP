@@ -10,12 +10,14 @@ public class airline {
 	public static int custAge;
 	public static double baseFlightPrice = 70.00, additionalPriceBetweenAirports = 0.00, sumOfFlightPrice;
 	public static double additionalPriceBetweenTimeFrame = 0.00, additionalPriceBetweenAirlines = 0.00;
+	public static double additionalPriceBetweenClasses = 0.00;
 	// Important: sumOfFlightPrice
 	
 	// Arrays declaration
 	public static String airportDestination[] = {"KLIA", "Langkawi", "Kuching", "Penang", "KK", "Senai"};
-	public static String timeFrame[] = {"0000 - 0500", "0600 - 1200", "1300 - 1800", "1900 - 1159"};
 	public static String airlinesType[] = {"MAS", "AirAsia", "Batik"};
+	public static String airlineClassType[] = {"Economy", "First Class", "Business Class"};
+
 	
 	// Others declaration
 	// This is just a list of airport locations
@@ -102,6 +104,8 @@ public class airline {
 		CustomerToWhere();
 		FlightPrice();
 		AirlinesType();
+		AirlineTime();
+		AirlineClassType();
 	}
 	
 	// Get customer's destination of departure
@@ -362,7 +366,7 @@ public class airline {
 						
 	}
 	
-	public static void AirlinesType () {
+	public static void AirlinesType() {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -392,34 +396,88 @@ public class airline {
 			if(custAirline.equals(airlinesType[i])) {
 				custAirline = airlinesType[i];
 			}
-			
 		}
 		
+		// MAS
 		if(custAirline.equals("MAS")) {
 			
 			additionalPriceBetweenAirlines = 100.00;
 			sumOfFlightPrice += additionalPriceBetweenAirlines;			
 		}
 		
+		// AirAsia
 		else if(custAirline.equals("AirAsia")) {
 			
 			additionalPriceBetweenAirlines = 50.00;
 			sumOfFlightPrice += additionalPriceBetweenAirlines;			
 		}
 		
+		// Batik (Malindo)
 		else if(custAirline.equals("Batik")) {
 			
 			additionalPriceBetweenAirlines = 20.00;
 			sumOfFlightPrice += additionalPriceBetweenAirlines;			
 		}
 		
+		// If none
 		else {
 			System.out.println("Airline you have selected is not available. Please try again.");
 		}
 		
 		System.out.println("\n    Price: " + sumOfFlightPrice);
 
+	}
+	
+	public static void AirlineTime() {
 		
+		// Tanya depa mcm mn nk bg lg okie part ni. Sbb arrival time xde estimation
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("\n    Your chosen date: " + custDate);
+		
+		// Just save it as a string. No calculations involved.
+		System.out.print("    Your preffered depart time [24 Hours format - Ex. 15:45: ");
+		departingTime = sc.next();
+		
+	}
+	
+	public static void AirlineClassType() {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		// For numbered bullet points 
+		int j = 1;
+		
+		System.out.println("\n    Available Classes -");
+		
+		// To show all the available class in that particular airline. Economy, etc
+		for(int i = 0; i < airlineClassType.length; i++) {
+			System.out.println("    " + j + ". " + airlineClassType[i]);
+			j++;
+		}
+		
+		System.out.print("\nAirline Class: ");
+		classType = sc.next();
+		
+		if(classType.equals("Economy")) {
+			additionalPriceBetweenClasses = 0.00;
+			sumOfFlightPrice += additionalPriceBetweenClasses;
+		}
+		
+		else if(classType.equals("First Class")) {
+			additionalPriceBetweenClasses = 50.00;
+			sumOfFlightPrice += additionalPriceBetweenClasses;
+		}
+		
+		else if(classType.equals("Business Class")) {
+			additionalPriceBetweenClasses = 100.00;
+			sumOfFlightPrice += additionalPriceBetweenClasses;
+		}
+		
+		else {
+			System.out.println("Class that you have selected in not valid. Please try again.");
+		}
 	}
 }
 
