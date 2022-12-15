@@ -10,6 +10,7 @@ public class airline {
 	public static double additionalPriceBetweenTimeFrame = 0.00, additionalPriceBetweenAirlines = 0.00;
 	public static double additionalPriceBetweenClasses = 0.00, additionalPriceBetweenAges = 0.00;
 	public static double additionalPriceOfAddon = 0.00, additionalPriceOfLuggages = 0.00;
+	public static double luggagesWeightOverall;
 	// Important: sumOfFlightPrice
 	
 	// Arrays declaration
@@ -79,6 +80,8 @@ public class airline {
 	// All about the flights
 	public static void FlightDetails() {
 		
+		double luggagesWeight;
+		
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("\n FLIGHT DETAILS");
@@ -107,6 +110,12 @@ public class airline {
 		AirlineClassType();
 		AirlineCustomerAgeType();
 		AirlineAddons();
+		
+		System.out.println("    Luggages weight [IN KG]: ");
+		luggagesWeight = sc.nextDouble();
+		
+		// Get luggages weight
+		AirlineLuggages(luggagesWeight);
 	}
 	
 	// Get customer's destination of departure
@@ -526,6 +535,29 @@ public class airline {
 		// If customer dont want addon
 		else if(isAddon == false) {
 			additionalPriceOfAddon = 0.00;
+		}
+	}
+	
+	public static void AirlineLuggages(double luggagesWeight) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		// 20 KG and above
+		if(luggagesWeight > 20) {
+			additionalPriceOfLuggages = 10.00;
+			sumOfFlightPrice += additionalPriceOfLuggages;
+		}
+		
+		// 40 KG and above
+		if(luggagesWeight > 40 ) {
+			additionalPriceOfLuggages = 50.00;
+			sumOfFlightPrice += additionalPriceOfLuggages;
+		}
+		
+		// 60KG and above
+		if(luggagesWeight > 60 ) {
+			additionalPriceOfLuggages = 150.00;
+			sumOfFlightPrice += additionalPriceOfLuggages;
 		}
 	}
 }
