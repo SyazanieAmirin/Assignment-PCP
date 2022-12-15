@@ -4,14 +4,12 @@ public class airline {
 	
 	// Variables declaration
 	public static String custIC, custNoPhone, custName, custDate, custDestinationFromWhere, custDestinationToWhere, custSeatClass;
-	public static String custAirline;
-	public static String departingTime, arrivalTime;
-	public static String classType;
+	public static String custAirline, departingTime, arrivalTime, classType, addonStatus;
 	public static int custAge;
 	public static double baseFlightPrice = 70.00, additionalPriceBetweenAirports = 0.00, sumOfFlightPrice;
 	public static double additionalPriceBetweenTimeFrame = 0.00, additionalPriceBetweenAirlines = 0.00;
 	public static double additionalPriceBetweenClasses = 0.00, additionalPriceBetweenAges = 0.00;
-	public static double additionalPriceOfAddon = 0.00;
+	public static double additionalPriceOfAddon = 0.00, additionalPriceOfLuggages = 0.00;
 	// Important: sumOfFlightPrice
 	
 	// Arrays declaration
@@ -25,7 +23,7 @@ public class airline {
 	public static String airportLocations = "(KLIA/Langkawi/Kuching/Penang/KK/Senai)";
 	
 	// Boolean declarations
-	public static boolean isLuggage = false, isAddon = false;
+	public static boolean isAddon = false;
 	
 	public static void main(String args[]) {
 		MainMenu();
@@ -108,6 +106,7 @@ public class airline {
 		AirlineTime();
 		AirlineClassType();
 		AirlineCustomerAgeType();
+		AirlineAddons();
 	}
 	
 	// Get customer's destination of departure
@@ -494,6 +493,39 @@ public class airline {
 		
 		if(custAge >= 51) {
 			additionalPriceBetweenAges = 5.00;
+		}
+	}
+	
+	public static void AirlineAddons() {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("\n    Addons? (Wi-Fi, Food) [YES] [NO]: ");
+		addonStatus = sc.next();
+		
+		// If YES
+		if(addonStatus.equals("YES")) {
+			isAddon = true;
+		}
+		
+		// If NO
+		else if(addonStatus.equals("NO")) {
+			isAddon = false;
+		}
+		
+		else {
+			System.out.println("    Addons input not valid. Please try again.");
+		}
+		
+		// If customer wants addon
+		if(isAddon == true) {
+			additionalPriceOfAddon = 30.00;
+			sumOfFlightPrice += additionalPriceOfAddon;
+		}
+		
+		// If customer dont want addon
+		else if(isAddon == false) {
+			additionalPriceOfAddon = 0.00;
 		}
 	}
 }
