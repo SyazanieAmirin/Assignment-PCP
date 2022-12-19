@@ -119,6 +119,7 @@ public class airline {
 		
 		// Get luggages weight
 		AirlineLuggages(luggagesWeight);
+		AirlineSeating();
 	}
 	
 	// Get customer's destination of departure
@@ -572,9 +573,34 @@ public class airline {
 		
 		// Write receipt
 	}
+	
+	public static void AirlineSeating() {
+		// Get random numbers for the seating numbers
+		int min = 1;
+		int max = 4;
+		int randNum = (int) (Math.random() * (max-min + 1) + min);
+		
+		// Declare all the seatings' alphabets
+		String seatingsAlphabets[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+		
+		// Get random numbers of alphabets' position
+		int minSeat = 0;
+		int maxSeat = 25;
+		int randSeat = 	(int) (Math.random() * (maxSeat-minSeat + 1) + minSeat);
+		
+		System.out.println("\nSEATINGS");
+		
+		// randNum will display random numbers from 1-4 and followed by random alphabets from seatAlphabets array
+		System.out.println("    Your assigned seat: " + randNum + seatingsAlphabets[randSeat]);
+	}
+	
+	public static void TheReceipt() {
+		
+	}
 }
 
 // Flight details
 //Makanan - Wifi - Same shit
 // Class (Economy, Biz, First)
 // If scanner only takes first word, need to use nextLine
+// Seating
