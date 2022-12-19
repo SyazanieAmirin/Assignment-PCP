@@ -3,11 +3,13 @@ import java.util.*;
 public class airline {
 	
 	// Variables declaration
-	public static String custIC, custNoPhone, custName, custDate, custDestinationFromWhere, custDestinationToWhere, custSeatClass;
-	public static String custAirline, departingTime, arrivalTime, classType, addonStatus;
+	public static String custIC, custNoPhone, custName, custDate, custDestinationFromWhere, custDestinationToWhere;
+	public static String custAirline, departingTime, classType, addonStatus;
+	public static String airlineSeat;
+	public static int airlineGate;
 	public static int custAge;
 	public static double baseFlightPrice = 70.00, additionalPriceBetweenAirports = 0.00, sumOfFlightPrice;
-	public static double additionalPriceBetweenTimeFrame = 0.00, additionalPriceBetweenAirlines = 0.00;
+	public static double additionalPriceBetweenAirlines = 0.00;
 	public static double additionalPriceBetweenClasses = 0.00, additionalPriceBetweenAges = 0.00;
 	public static double additionalPriceOfAddon = 0.00, additionalPriceOfLuggages = 0.00;
 	public static double luggagesWeightOverall;
@@ -30,6 +32,8 @@ public class airline {
 		MainMenu();
 		CustDetails();
 		FlightDetails();
+		AirlineTickets();
+		AirlinePrices();
 	}
 	
 	public static void MainMenu() {
@@ -120,6 +124,8 @@ public class airline {
 		// Get luggages weight
 		AirlineLuggages(luggagesWeight);
 		AirlineSeating();
+		AirlineGate();
+		
 	}
 	
 	// Get customer's destination of departure
@@ -454,7 +460,7 @@ public class airline {
 		System.out.println("\nDATES");
 		
 		// Just save it as a string. No calculations involved.
-		System.out.print("    Depart time on " + custDate + " [12 Hours Format]: ");
+		System.out.print("    Depart time on " + custDate + " [12 Hours Format. Example: 12PM]: ");
 		departingTime = sc.next();
 		
 	}
@@ -476,7 +482,7 @@ public class airline {
 			j++;
 		}
 		
-		System.out.print("\n    Airline Class: ");
+		System.out.print("\n    Airline Class [Write its name]: ");
 		classType = sc.nextLine();
 		
 		if(classType.equalsIgnoreCase("Economy")) {
@@ -571,7 +577,6 @@ public class airline {
 			sumOfFlightPrice += additionalPriceOfLuggages;
 		}
 		
-		// Write receipt
 	}
 	
 	public static void AirlineSeating() {
@@ -592,11 +597,68 @@ public class airline {
 		
 		// randNum will display random numbers from 1-4 and followed by random alphabets from seatAlphabets array
 		System.out.println("    Your assigned seat: " + randNum + seatingsAlphabets[randSeat]);
+		
+		// Set the airlineSeat
+		airlineSeat = randNum + seatingsAlphabets[randSeat];
 	}
 	
-	public static void TheReceipt() {
+	public static void AirlineGate() {
+		// Get random numbers for the gate numbers
+		int min = 1;
+		int max = 10;
+		int randNum = (int) (Math.random() * (max-min + 1) + min);
 		
+		System.out.println("\nGATES");
+		
+		// Show the gate's number
+		System.out.println("    Your assigned gate: " + "Gate " + randNum);
+		
+		// Set the airlineGate
+		airlineGate = randNum;
 	}
+	
+	public static void AirlineTickets() {
+		
+		System.out.println("\nTICKETS");
+		
+		System.out.println("\n           _\r\n"
+				+ "         -=\\`\\\r\n"
+				+ "     |\\ ____\\_\\__\r\n"
+				+ "   -=\\c`\"\"\"\"\"\"\" \"`)\r\n"
+				+ "      `~~~~~/ /~~`\r\n"
+				+ "        -==/ /\r\n"
+				+ "          '-'");
+		
+		System.out.println("\n------------------------");
+		System.out.println("\nFlight: " + custAirline);
+		System.out.println("Name: " + custName);
+		System.out.println("Age: " + custAge);
+		System.out.println("Date: " + custDate);
+		System.out.println("From: " + custDestinationFromWhere);
+		System.out.println("To: " + custDestinationToWhere);
+		System.out.println("Class: " + classType);
+		System.out.println("Boarding Time: " + departingTime);
+		System.out.println("Gate: " + airlineGate);
+		System.out.println("Seat: " + airlineSeat);
+		System.out.println("\n------------------------");
+	}
+	
+	public static void AirlinePrices() {
+		System.out.println("\nRECEIPT");
+		
+		System.out.println("\n------------------------");
+		System.out.println("\nBase Price: RM" + baseFlightPrice);
+		System.out.println("Flight Cost: " + "+ RM" + additionalPriceBetweenAirlines);
+		System.out.println("Class Cost: " + "+ RM" + additionalPriceBetweenClasses);
+		System.out.println("Age Cost: " + "+ RM" + additionalPriceBetweenAges);
+		System.out.println("Addons Cost: " + "+ RM" + additionalPriceOfAddon);
+		System.out.println("Luggages Cost: " + "+ RM" + additionalPriceOfLuggages);
+		System.out.println("Location Cost: " + " +RM" + additionalPriceBetweenAirports);
+		System.out.println("Total Cost: RM" + sumOfFlightPrice);
+		System.out.println("\n------------------------");
+	}
+	
+	// Receipt and ticket are diff
 }
 
 // Flight details
