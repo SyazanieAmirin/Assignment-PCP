@@ -97,11 +97,12 @@ public class airline {
 		
 		// Check to get the destination of departure
 		for(int i = 0; i < airportDestination.length; i++) {
-			if(custDestinationFromWhere.equals(airportDestination[i])) {
+			if(custDestinationFromWhere.equalsIgnoreCase(airportDestination[i])) {
 				custDestinationFromWhere = airportDestination[i];
 			}
 		}
 		
+		// Functions that only related to airlines are called here
 		CustomerFromWhere();
 		CustomerToWhere();
 		FlightPrice();
@@ -111,7 +112,9 @@ public class airline {
 		AirlineCustomerAgeType();
 		AirlineAddons();
 		
-		System.out.println("    Luggages weight [IN KG]: ");
+		System.out.println("\nLUGGAGES");
+		
+		System.out.print("    Luggages weight [IN KG]: ");
 		luggagesWeight = sc.nextDouble();
 		
 		// Get luggages weight
@@ -124,12 +127,12 @@ public class airline {
 		Scanner sc = new Scanner(System.in);
 				
 		// Check if Senai is the selected answer
-		if(custDestinationFromWhere.equals("Senai")) {
+		if(custDestinationFromWhere.equalsIgnoreCase("Senai")) {
 			airportLocations = airportLocations.replace("/Senai", "");
 		}
 		
 		// If KLIA is the selected answer
-		else if(custDestinationFromWhere.equals("KLIA")) {
+		else if(custDestinationFromWhere.equalsIgnoreCase("KLIA")) {
 			airportLocations = airportLocations.replace("KLIA/", "");
 		}
 		
@@ -186,28 +189,28 @@ public class airline {
 		// KLIA
 		public static void FlightFromKLIA() {
 							
-			if(custDestinationToWhere.equals("Langkawi")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Langkawi")) {
 				
 				additionalPriceBetweenAirports = 10.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 			
-			if(custDestinationToWhere.equals("Kuching")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Kuching")) {
 				additionalPriceBetweenAirports = 50.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 			
-			if(custDestinationToWhere.equals("Penang")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Penang")) {
 				additionalPriceBetweenAirports = 5.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 			
-			if(custDestinationToWhere.equals("KK")) {
+			if(custDestinationToWhere.equalsIgnoreCase("KK")) {
 				additionalPriceBetweenAirports = 55.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 			
-			if(custDestinationToWhere.equals("Senai")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Senai")) {
 				additionalPriceBetweenAirports = 5.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
@@ -218,28 +221,28 @@ public class airline {
 		// Langkawi
 		public static void FlightFromLangkawi() {
 			
-			if(custDestinationToWhere.equals("KLIA")) {
+			if(custDestinationToWhere.equalsIgnoreCase("KLIA")) {
 				
 				additionalPriceBetweenAirports = 10.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 			
-			if(custDestinationToWhere.equals("Kuching")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Kuching")) {
 				additionalPriceBetweenAirports = 70.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 			
-			if(custDestinationToWhere.equals("Penang")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Penang")) {
 				additionalPriceBetweenAirports = 5.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 			
-			if(custDestinationToWhere.equals("KK")) {
+			if(custDestinationToWhere.equalsIgnoreCase("KK")) {
 				additionalPriceBetweenAirports = 75.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 			
-			if(custDestinationToWhere.equals("Senai")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Senai")) {
 				additionalPriceBetweenAirports = 15.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
@@ -250,28 +253,28 @@ public class airline {
 		// Kuching
 		public static void FlightFromKuching() {
 				
-			if(custDestinationToWhere.equals("KLIA")) {
+			if(custDestinationToWhere.equalsIgnoreCase("KLIA")) {
 					
 				additionalPriceBetweenAirports = 50.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 				
-			if(custDestinationToWhere.equals("Langkawi")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Langkawi")) {
 				additionalPriceBetweenAirports = 70.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 				
-			if(custDestinationToWhere.equals("Penang")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Penang")) {
 				additionalPriceBetweenAirports = 60.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 				
-			if(custDestinationToWhere.equals("KK")) {
+			if(custDestinationToWhere.equalsIgnoreCase("KK")) {
 				additionalPriceBetweenAirports = 5.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 				
-			if(custDestinationToWhere.equals("Senai")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Senai")) {
 				additionalPriceBetweenAirports = 30.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
@@ -282,28 +285,28 @@ public class airline {
 		// Penang
 		public static void FlightFromPenang() {
 					
-			if(custDestinationToWhere.equals("KLIA")) {
+			if(custDestinationToWhere.equalsIgnoreCase("KLIA")) {
 						
 				additionalPriceBetweenAirports = 5.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 				
-			if(custDestinationToWhere.equals("Langkawi")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Langkawi")) {
 				additionalPriceBetweenAirports = 5.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 					
-			if(custDestinationToWhere.equals("Kuching")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Kuching")) {
 				additionalPriceBetweenAirports = 60.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 					
-			if(custDestinationToWhere.equals("KK")) {
+			if(custDestinationToWhere.equalsIgnoreCase("KK")) {
 				additionalPriceBetweenAirports = 60.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 					
-			if(custDestinationToWhere.equals("Senai")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Senai")) {
 				additionalPriceBetweenAirports = 20.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
@@ -314,28 +317,28 @@ public class airline {
 		// Kota Kinabalu
 		public static void FlightFromKK() {
 						
-			if(custDestinationToWhere.equals("KLIA")) {
+			if(custDestinationToWhere.equalsIgnoreCase("KLIA")) {
 						
 				additionalPriceBetweenAirports = 55.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 					
-			if(custDestinationToWhere.equals("Langkawi")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Langkawi")) {
 				additionalPriceBetweenAirports = 75.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 						
-			if(custDestinationToWhere.equals("Kuching")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Kuching")) {
 				additionalPriceBetweenAirports = 10.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 					
-			if(custDestinationToWhere.equals("Penang")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Penang")) {
 				additionalPriceBetweenAirports = 60.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
 					
-			if(custDestinationToWhere.equals("Senai")) {
+			if(custDestinationToWhere.equalsIgnoreCase("Senai")) {
 				additionalPriceBetweenAirports = 30.00;
 				sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 			}
@@ -346,28 +349,28 @@ public class airline {
 		// Senai
 		public static void FlightFromSenai() {
 						
-		if(custDestinationToWhere.equals("KLIA")) {
+		if(custDestinationToWhere.equalsIgnoreCase("KLIA")) {
 						
 			additionalPriceBetweenAirports = 5.00;
 			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 		}
 					
-		if(custDestinationToWhere.equals("Langkawi")) {
+		if(custDestinationToWhere.equalsIgnoreCase("Langkawi")) {
 			additionalPriceBetweenAirports = 15.00;
 			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 		}
 						
-		if(custDestinationToWhere.equals("Kuching")) {
+		if(custDestinationToWhere.equalsIgnoreCase("Kuching")) {
 			additionalPriceBetweenAirports = 30.00;
 			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 		}
 				
-		if(custDestinationToWhere.equals("Penang")) {
+		if(custDestinationToWhere.equalsIgnoreCase("Penang")) {
 			additionalPriceBetweenAirports = 20.00;
 			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 		}
 					
-		if(custDestinationToWhere.equals("KK")) {
+		if(custDestinationToWhere.equalsIgnoreCase("KK")) {
 			additionalPriceBetweenAirports = 30.00;
 			sumOfFlightPrice = baseFlightPrice + additionalPriceBetweenAirports;
 		}
@@ -383,7 +386,9 @@ public class airline {
 		//For numbered bullet points
 		int j = 1;
 		
-		System.out.println("\n    Available Airlines ");
+		System.out.println("\nAIRLINES");
+		
+		System.out.println("    Available Airlines -");
 		
 		// Shows all available airlines.
 		for(int i = 0; i < airlinesType.length; i++) {
@@ -393,7 +398,8 @@ public class airline {
 			
 		}
 		
-		System.out.print("\n    Chosen Airline: ");
+		// Get the chosen airline by the user
+		System.out.print("\n    Airline [Write its name]: ");
 		custAirline = sc.next();
 		
 		// To set the customer's selected airline
@@ -403,27 +409,27 @@ public class airline {
 			 [2] - Batik 
 			 */
 		for(int i = 0; i < airlinesType.length; i++) {
-			if(custAirline.equals(airlinesType[i])) {
+			if(custAirline.equalsIgnoreCase(airlinesType[i])) {
 				custAirline = airlinesType[i];
 			}
 		}
 		
 		// MAS
-		if(custAirline.equals("MAS")) {
+		if(custAirline.equalsIgnoreCase("MAS")) {
 			
 			additionalPriceBetweenAirlines = 100.00;
 			sumOfFlightPrice += additionalPriceBetweenAirlines;			
 		}
 		
 		// AirAsia
-		else if(custAirline.equals("AirAsia")) {
+		else if(custAirline.equalsIgnoreCase("AirAsia")) {
 			
 			additionalPriceBetweenAirlines = 50.00;
 			sumOfFlightPrice += additionalPriceBetweenAirlines;			
 		}
 		
 		// Batik (Malindo)
-		else if(custAirline.equals("Batik")) {
+		else if(custAirline.equalsIgnoreCase("Batik")) {
 			
 			additionalPriceBetweenAirlines = 20.00;
 			sumOfFlightPrice += additionalPriceBetweenAirlines;			
@@ -434,7 +440,7 @@ public class airline {
 			System.out.println("Airline you have selected is not available. Please try again.");
 		}
 		
-		System.out.println("\n    Price: " + sumOfFlightPrice);
+		// System.out.println("\n    Price: " + sumOfFlightPrice);
 
 	}
 	
@@ -444,10 +450,10 @@ public class airline {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("\n    Your chosen date: " + custDate);
+		System.out.println("\nDATES");
 		
 		// Just save it as a string. No calculations involved.
-		System.out.print("    Your preffered depart time [24 Hours format - Ex. 15:45: ");
+		System.out.print("    Depart time on " + custDate + " [12 Hours Format]: ");
 		departingTime = sc.next();
 		
 	}
@@ -459,7 +465,9 @@ public class airline {
 		// For numbered bullet points 
 		int j = 1;
 		
-		System.out.println("\n    Available Classes -");
+		System.out.println("\nAIRLINE CLASSES");
+		
+		System.out.println("    Available Classes -");
 		
 		// To show all the available class in that particular airline. Economy, etc
 		for(int i = 0; i < airlineClassType.length; i++) {
@@ -467,20 +475,20 @@ public class airline {
 			j++;
 		}
 		
-		System.out.print("\nAirline Class: ");
-		classType = sc.next();
+		System.out.print("\n    Airline Class: ");
+		classType = sc.nextLine();
 		
-		if(classType.equals("Economy")) {
+		if(classType.equalsIgnoreCase("Economy")) {
 			additionalPriceBetweenClasses = 0.00;
 			sumOfFlightPrice += additionalPriceBetweenClasses;
 		}
 		
-		else if(classType.equals("First Class")) {
+		else if(classType.equalsIgnoreCase("First Class")) {
 			additionalPriceBetweenClasses = 50.00;
 			sumOfFlightPrice += additionalPriceBetweenClasses;
 		}
 		
-		else if(classType.equals("Business Class")) {
+		else if(classType.equalsIgnoreCase("Business Class")) {
 			additionalPriceBetweenClasses = 100.00;
 			sumOfFlightPrice += additionalPriceBetweenClasses;
 		}
@@ -509,16 +517,18 @@ public class airline {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("\n    Addons? (Wi-Fi, Food) [YES] [NO]: ");
+		System.out.println("\nADDONS");
+		
+		System.out.print("    Addons? (Wi-Fi, Food) [YES] [NO]: ");
 		addonStatus = sc.next();
 		
 		// If YES
-		if(addonStatus.equals("YES")) {
+		if(addonStatus.equalsIgnoreCase("YES")) {
 			isAddon = true;
 		}
 		
 		// If NO
-		else if(addonStatus.equals("NO")) {
+		else if(addonStatus.equalsIgnoreCase("NO")) {
 			isAddon = false;
 		}
 		
@@ -559,10 +569,12 @@ public class airline {
 			additionalPriceOfLuggages = 150.00;
 			sumOfFlightPrice += additionalPriceOfLuggages;
 		}
+		
+		// Write receipt
 	}
 }
 
 // Flight details
 //Makanan - Wifi - Same shit
 // Class (Economy, Biz, First)
-// 
+// If scanner only takes first word, need to use nextLine
