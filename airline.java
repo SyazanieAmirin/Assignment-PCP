@@ -3,40 +3,46 @@ import java.util.*;
 public class airline {
 	
 	// Variables declaration
-	public static String custIC, custNoPhone, custName, custDate, custDestinationFromWhere, custDestinationToWhere;
-	public static String custAirline, departingTime, classType, addonStatus;
-	public static String airlineSeat;
-	public static int airlineGate;
-	public static int custAge;
-	public static double baseFlightPrice = 70.00, additionalPriceBetweenAirports = 0.00, sumOfFlightPrice;
-	public static double additionalPriceBetweenAirlines = 0.00;
-	public static double additionalPriceBetweenClasses = 0.00, additionalPriceBetweenAges = 0.00;
-	public static double additionalPriceOfAddon = 0.00, additionalPriceOfLuggages = 0.00;
-	public static double luggagesWeightOverall;
+	public String custIC, custNoPhone, custName, custDate, custDestinationFromWhere, custDestinationToWhere;
+	public String custAirline, departingTime, classType, addonStatus;
+	public String airlineSeat;
+	public int airlineGate;
+	public int custAge;
+	public double baseFlightPrice = 70.00, additionalPriceBetweenAirports = 0.00;
+	public double additionalPriceBetweenAirlines = 0.00;
+	public double additionalPriceBetweenClasses = 0.00, additionalPriceBetweenAges = 0.00;
+	public double additionalPriceOfAddon = 0.00, additionalPriceOfLuggages = 0.00;
+	public double luggagesWeightOverall;
+	public double sumOfFlightPrice;
 	// Important: sumOfFlightPrice
 	
 	// Arrays declaration
-	public static String airportDestination[] = {"KLIA", "Langkawi", "Kuching", "Penang", "KK", "Senai"};
-	public static String airlinesType[] = {"MAS", "AirAsia", "Batik"};
-	public static String airlineClassType[] = {"Economy", "First Class", "Business Class"};
+	public String airportDestination[] = {"KLIA", "Langkawi", "Kuching", "Penang", "KK", "Senai"};
+	public String airlinesType[] = {"MAS", "AirAsia", "Batik"};
+	public String airlineClassType[] = {"Economy", "First Class", "Business Class"};
 
 	
 	// Others declaration
 	// This is just a list of airport locations
-	public static String airportLocations = "(KLIA/Langkawi/Kuching/Penang/KK/Senai)";
+	public String airportLocations = "(KLIA/Langkawi/Kuching/Penang/KK/Senai)";
 	
 	// Boolean declarations
-	public static boolean isAddon = false;
+	public boolean isAddon = false;
 	
 	public static void main(String args[]) {
-		MainMenu();
-		CustDetails();
-		FlightDetails();
-		AirlineTickets();
-		AirlinePrices();
+		
+		// Constructor of current class
+		airline air = new airline();
+		
+		// Need to put air. because this main function is static
+		air.MainMenu();
+		air.CustDetails();
+		air.FlightDetails();
+		air.AirlineTickets();
+		air.AirlinePrices();
 	}
 	
-	public static void MainMenu() {
+	public void MainMenu() {
 		
 		// Left side stars
 		for(int i = 0; i < 10; i++)
@@ -58,7 +64,7 @@ public class airline {
 	}
 	
 	// Get customer's personal details
-	public static void CustDetails() {
+	public void CustDetails() {
 		
 		Scanner sc = new Scanner(System.in);
 	
@@ -82,7 +88,7 @@ public class airline {
 	}
 	
 	// All about the flights
-	public static void FlightDetails() {
+	public void FlightDetails() {
 		
 		double luggagesWeight;
 		
@@ -113,7 +119,6 @@ public class airline {
 		AirlineTypes();
 		AirlineTime();
 		AirlineClassType();
-		AirlineCustomerAgeType();
 		AirlineAddons();
 		
 		System.out.println("\nLUGGAGES");
@@ -129,7 +134,7 @@ public class airline {
 	}
 	
 	// Get customer's destination of departure
-	public static void CustomerFromWhere() {
+	public void CustomerFromWhere() {
 		
 		Scanner sc = new Scanner(System.in);
 				
@@ -152,7 +157,7 @@ public class airline {
 	}
 	
 	// Get customer's destination of arrival
-	public static void CustomerToWhere() {
+	public void CustomerToWhere() {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -162,7 +167,7 @@ public class airline {
 	}
 	
 	// Show prices according to customer's destination of departure
-	public static void FlightPrice() {
+	public void FlightPrice() {
 
 		if(custDestinationFromWhere == "KLIA") {
 			FlightFromKLIA();
@@ -194,7 +199,7 @@ public class airline {
 	}
 	
 		// KLIA
-		public static void FlightFromKLIA() {
+		public void FlightFromKLIA() {
 							
 			if(custDestinationToWhere.equalsIgnoreCase("Langkawi")) {
 				
@@ -226,7 +231,7 @@ public class airline {
 		}
 		
 		// Langkawi
-		public static void FlightFromLangkawi() {
+		public void FlightFromLangkawi() {
 			
 			if(custDestinationToWhere.equalsIgnoreCase("KLIA")) {
 				
@@ -258,7 +263,7 @@ public class airline {
 		}
 		
 		// Kuching
-		public static void FlightFromKuching() {
+		public void FlightFromKuching() {
 				
 			if(custDestinationToWhere.equalsIgnoreCase("KLIA")) {
 					
@@ -290,7 +295,7 @@ public class airline {
 		}
 		
 		// Penang
-		public static void FlightFromPenang() {
+		public void FlightFromPenang() {
 					
 			if(custDestinationToWhere.equalsIgnoreCase("KLIA")) {
 						
@@ -322,7 +327,7 @@ public class airline {
 		}
 		
 		// Kota Kinabalu
-		public static void FlightFromKK() {
+		public void FlightFromKK() {
 						
 			if(custDestinationToWhere.equalsIgnoreCase("KLIA")) {
 						
@@ -354,7 +359,7 @@ public class airline {
 		}
 		
 		// Senai
-		public static void FlightFromSenai() {
+		public void FlightFromSenai() {
 						
 		if(custDestinationToWhere.equalsIgnoreCase("KLIA")) {
 						
@@ -386,7 +391,7 @@ public class airline {
 						
 	}
 	
-	public static void AirlineTypes() {
+	public void AirlineTypes() {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -451,7 +456,7 @@ public class airline {
 
 	}
 	
-	public static void AirlineTime() {
+	public void AirlineTime() {
 		
 		// Tanya depa mcm mn nk bg lg okie part ni. Sbb arrival time xde estimation
 		
@@ -465,7 +470,7 @@ public class airline {
 		
 	}
 	
-	public static void AirlineClassType() {
+	public void AirlineClassType() {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -491,12 +496,12 @@ public class airline {
 		}
 		
 		else if(classType.equalsIgnoreCase("First Class")) {
-			additionalPriceBetweenClasses = 50.00;
+			additionalPriceBetweenClasses = 100.00;
 			sumOfFlightPrice += additionalPriceBetweenClasses;
 		}
 		
 		else if(classType.equalsIgnoreCase("Business Class")) {
-			additionalPriceBetweenClasses = 100.00;
+			additionalPriceBetweenClasses = 50.00;
 			sumOfFlightPrice += additionalPriceBetweenClasses;
 		}
 		
@@ -505,22 +510,7 @@ public class airline {
 		}
 	}
 	
-	public static void AirlineCustomerAgeType() {
-		// Customer age 12
-		if(custAge < 13) {
-			additionalPriceBetweenAges = 0.00;
-		}
-		
-		if(custAge < 51) {
-			additionalPriceBetweenAges = 10.00;
-		}
-		
-		if(custAge >= 51) {
-			additionalPriceBetweenAges = 5.00;
-		}
-	}
-	
-	public static void AirlineAddons() {
+	public void AirlineAddons() {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -555,7 +545,7 @@ public class airline {
 		}
 	}
 	
-	public static void AirlineLuggages(double luggagesWeight) {
+	public void AirlineLuggages(double luggagesWeight) {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -577,9 +567,11 @@ public class airline {
 			sumOfFlightPrice += additionalPriceOfLuggages;
 		}
 		
+		sc.close();
+		
 	}
 	
-	public static void AirlineSeating() {
+	public void AirlineSeating() {
 		// Get random numbers for the seating numbers
 		int min = 1;
 		int max = 4;
@@ -602,7 +594,7 @@ public class airline {
 		airlineSeat = randNum + seatingsAlphabets[randSeat];
 	}
 	
-	public static void AirlineGate() {
+	public void AirlineGate() {
 		// Get random numbers for the gate numbers
 		int min = 1;
 		int max = 10;
@@ -617,7 +609,7 @@ public class airline {
 		airlineGate = randNum;
 	}
 	
-	public static void AirlineTickets() {
+	public void AirlineTickets() {
 		
 		System.out.println("\nTICKETS");
 		
@@ -643,14 +635,18 @@ public class airline {
 		System.out.println("\n------------------------");
 	}
 	
-	public static void AirlinePrices() {
+	public void AirlinePrices() {
+		
+		// Calling age constructor
+		AirlineCustomerAgeType age = new AirlineCustomerAgeType(custAge);
+		
 		System.out.println("\nRECEIPT");
 		
 		System.out.println("\n------------------------");
 		System.out.println("\nBase Price: RM" + baseFlightPrice);
 		System.out.println("Flight Cost: " + "+ RM" + additionalPriceBetweenAirlines);
 		System.out.println("Class Cost: " + "+ RM" + additionalPriceBetweenClasses);
-		System.out.println("Age Cost: " + "+ RM" + additionalPriceBetweenAges);
+		System.out.println("Age Cost: " + "+ RM" + age.additionalPriceBetweenAges);
 		System.out.println("Addons Cost: " + "+ RM" + additionalPriceOfAddon);
 		System.out.println("Luggages Cost: " + "+ RM" + additionalPriceOfLuggages);
 		System.out.println("Location Cost: " + " +RM" + additionalPriceBetweenAirports);
@@ -660,9 +656,3 @@ public class airline {
 	
 	// Receipt and ticket are diff
 }
-
-// Flight details
-//Makanan - Wifi - Same shit
-// Class (Economy, Biz, First)
-// If scanner only takes first word, need to use nextLine
-// Seating
