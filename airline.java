@@ -8,12 +8,13 @@ public class airline {
 	public String airlineSeat;
 	public int airlineGate;
 	public int custAge;
-	public double baseFlightPrice = 70.00, additionalPriceBetweenAirports = 0.00;
+	public double additionalPriceBetweenAirports = 0.00;
 	public double additionalPriceBetweenAirlines = 0.00;
-	public double additionalPriceBetweenClasses = 0.00, additionalPriceBetweenAges = 0.00;
+	public double additionalPriceBetweenClasses = 0.00;
 	public double additionalPriceOfAddon = 0.00, additionalPriceOfLuggages = 0.00;
 	public double luggagesWeightOverall;
 	public double sumOfFlightPrice;
+	static final double baseFlightPrice = 70.00;
 	// Important: sumOfFlightPrice
 	
 	// Arrays declaration
@@ -639,6 +640,9 @@ public class airline {
 		
 		// Calling age constructor
 		AirlineCustomerAgeType age = new AirlineCustomerAgeType(custAge);
+		
+		// Add the age price to the sum
+		sumOfFlightPrice += age.additionalPriceBetweenAges;
 		
 		System.out.println("\nRECEIPT");
 		
